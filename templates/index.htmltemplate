@@ -5,7 +5,9 @@
     </head>
 <body>
     <h1>Opgave</h1>
-    <p>{{ task.text }}</p>
-
+    <p> {{ opg.tekst }} </p>
+    {% for sm in opg.svar_liste %}
+        <button type="button"> {{ sm }} </button>
+    {% endfor %}
 </body>
 </html> 

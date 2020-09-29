@@ -7,11 +7,7 @@ import csv
 import os
 
 app = Flask(__name__)
-
-def gen_opg():
-    task = Opgave()
-    return render_template(index.htmltemplate, task = task)
-
+app.secret_key = "1337"
 
 @app.route("/")
 @app.route("/index")
@@ -19,6 +15,11 @@ def gen_opg():
 def index():
     return render_template("index.htmltemplate")
 
-@app.route("/opgave/<opgnr>")
-def opgave(opgnr):
-    
+@app.route("/opgave/")
+def opgave():
+    return render_template("index.htmltemplate", opg = Opgave())
+
+if __name__ == "__main__":
+    with app.app_context():
+        pass
+    app.run(debug=True)
