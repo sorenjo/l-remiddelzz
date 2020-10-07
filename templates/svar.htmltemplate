@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<title>Svar</title>
+<body>
+
+{% if rigtigt == True %}
+<h1>Du svarede rigtigt</h1>
+<p>Svaret var rigtigt</p>
+{% endif %}
+
+{% if rigtigt == False%}
+<h1>Du svarede forkert</h1>
+<p>Svaret var desværre forkert</p>
+{% endif %}
+
+<a href="/opgave/">Tag en ny opgave</a>
+
+</body>
+</html> 

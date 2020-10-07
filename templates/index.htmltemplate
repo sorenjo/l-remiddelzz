@@ -4,10 +4,19 @@
         <title>Page Title</title>
     </head>
 <body>
+    {% if opg %}
     <h1>Opgave</h1>
     <p> {{ opg.tekst }} </p>
     {% for sm in opg.svar_liste %}
-        <button type="button"> {{ sm }} </button>
+        {% if sm == opg.facit %}
+        <a href="/rigtigt/">{{ sm }}</a>
+        {% else %}
+            <a href="/forkert/">{{ sm }}</a>
+        {% endif %}
     {% endfor %}
+    {% else %}
+        <h1>Velkommen til factoriofessor</h1>
+        <a href="/opgave">Opgave</a>
+    {% endif %}
 </body>
 </html> 

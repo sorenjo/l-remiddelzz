@@ -19,6 +19,14 @@ def index():
 def opgave():
     return render_template("index.htmltemplate", opg = Opgave())
 
+@app.route("/rigtigt/")
+def rigtigt():
+    return render_template("svar.htmltemplate", rigtigt = True)
+
+@app.route("/forkert/")
+def forkert():
+    return render_template("svar.htmltemplate", rigtigt = False)
+
 if __name__ == "__main__":
     with app.app_context():
         pass
