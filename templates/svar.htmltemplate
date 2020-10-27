@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
-<title>Svar</title>
+    <head>
+        <title>Svar</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
+    </head>
 <body>
+    <div class="card content">
+    {% if rigtigt == True %}
+        <h1>Du svarede rigtigt</h1>
+        <p>Svaret var rigtigt</p>
+    {% endif %}
 
-{% if rigtigt == True %}
-<h1>Du svarede rigtigt</h1>
-<p>Svaret var rigtigt</p>
-{% endif %}
+    {% if rigtigt == False%}
+        <h1>Du svarede forkert</h1>
+        <p>Svaret var desværre forkert</p>
+    {% endif %}
 
-{% if rigtigt == False%}
-<h1>Du svarede forkert</h1>
-<p>Svaret var desværre forkert</p>
-{% endif %}
-
-<a href="/opgave/">Tag en ny opgave</a>
-
+    <a href="/opgave/" class="button">Tag en ny opgave</a>
+    </div>
 </body>
 </html> 

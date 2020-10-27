@@ -1,20 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Page Title</title>
+        <title>Opgave</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
     </head>
 <body>
     {% if opg %}
+    <div class="content card">
     <h1>Opgave</h1>
-    <img src="{{ url_for('static', filename='img/' + 'billede.png') }}">
+    <img src="{{ url_for('static', filename='img/' + 'billede.png') }}" class="billede">
     <p> {{ opg.tekst }} </p>
+    <div class="svarmuligheder">
     {% for sm in opg.svar_liste %}
         {% if sm == opg.facit %}
-        <a href="/rigtigt/">{{ sm }}</a>
+        <a href="/rigtigt/" class="button ">{{ sm }}</a>
         {% else %}
-            <a href="/forkert/">{{ sm }}</a>
+            <a href="/forkert/" class="button ">{{ sm }}</a>
         {% endif %}
     {% endfor %}
+    </div>
+    </div>
     {% else %}
         <h1>Velkommen til factoriofessor</h1>
         <a href="/opgave">Opgave</a>
