@@ -6,6 +6,7 @@
 <body>
     {% if opg %}
     <h1>Opgave</h1>
+    <img src="{{ url_for('static', filename='img/' + 'billede.png') }}">
     <p> {{ opg.tekst }} </p>
     {% for sm in opg.svar_liste %}
         {% if sm == opg.facit %}
