@@ -17,7 +17,7 @@ def index():
 
 @app.route("/opgave/")
 def opgave():
-    return render_template("index.htmltemplate", opg = Opgave())
+    return render_template("opgave.htmltemplate", opg = Opgave())
 
 @app.route("/rigtigt/")
 def rigtigt():

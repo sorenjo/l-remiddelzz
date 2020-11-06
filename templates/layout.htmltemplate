@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% if title %}
+        <title>{{ title }}</title>
+        {% else %}
+        <title>Factoriofessor</title>
+        {% endif %}
+        <link rel="stylesheet" href="https://www.factorio.com/static/css/main.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css" rel="stylesheet" crossorigin="anonymous">
+    </head>
+<body>
+    <div class="header">
+        <div class="header-inner">
+            <a class="header-logo" href="/"> 
+                <img src="/static/img/logo.png">
+        </a>
+    </div>
+    </div>
+    <div class="container">
+        <div class="container-inner">
+            <div class="panel">
+            {% block content %} {% endblock %}
+        </div>
+    </div>
+    </div>
+    <script>
+        closed_q = {};
+        function close(q_id) {
+            closed_q[q_id] = true;
+            document.querySelector('#a-'+q_id).classList.add('display-none');
+            document.querySelector('#i-'+q_id).classList.add('fa-chevron-right');
+            document.querySelector('#i-'+q_id).classList.remove('fa-chevron-down');
+        }
+
+        function open(q_id) {
+            history.replaceState(null, null, '#q-'+q_id);
+            document.querySelector('#a-'+q_id).classList.remove('display-none');
+            document.querySelector('#i-'+q_id).classList.remove('fa-chevron-right');
+            document.querySelector('#i-'+q_id).classList.add('fa-chevron-down');
+        }
+        document.querySelectorAll('.faq-question').forEach(function(element) {
+            q_id = element.dataset.q;
+            close(q_id);
+            element.onclick = function(event) {
+                q_id = event.target.dataset.q;
+                if (closed_q[q_id]) {
+                    closed_q[q_id] = false;
+                    open(q_id);
+                } else {
+                    closed_q[q_id] = true;
+                    close(q_id);
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

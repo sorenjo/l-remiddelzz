@@ -1,28 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Opgave</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
-    </head>
-<body>
-    {% if opg %}
-    <div class="content card">
-    <h1>Opgave</h1>
-    <img src="{{ url_for('static', filename='img/' + 'billede.png') }}" class="billede">
-    <p> {{ opg.tekst }} </p>
-    <div class="svarmuligheder">
-    {% for sm in opg.svar_liste %}
-        {% if sm == opg.facit %}
-        <a href="/rigtigt/" class="button ">{{ sm }}</a>
-        {% else %}
-            <a href="/forkert/" class="button ">{{ sm }}</a>
-        {% endif %}
-    {% endfor %}
+{% extends "layout.htmltemplate" %}
+{% block content %}
+    <h2>Velkommen til Factoriofessor</h2>
+    <div class="panel-inset-lighter">
+        <p class="yellow">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </div>
-    </div>
-    {% else %}
-        <h1>Velkommen til factoriofessor</h1>
-        <a href="/opgave">Opgave</a>
-    {% endif %}
-</body>
-</html> 
+    <a href="/opgave/" class="button-green-right">Opgave</a>
+{% endblock content %}

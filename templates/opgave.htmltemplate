@@ -1,0 +1,17 @@
+{% extends "layout.htmltemplate" %}
+{% block content %}
+    <h2>Opgave</h2>
+    <div class="panel-inset-lighter">
+        <p class="yellow">{{opg.tekst}}</p>
+    </div>
+        <img src="{{ url_for('static', filename='img/' + 'billede.png') }}" class="center panel-inset-lighter bottom-shadow-broder w100p">
+    <div class="center">
+        {% for sm in opg.svar_liste %}
+        {% if sm == opg.facit %}
+        <a href="/rigtigt/" class="button"> {{sm}}</a>
+        {% else %}
+        <a href="/forkert/" class="button"> {{sm}}</a>
+        {% endif %}
+        {% endfor %}
+    </div>
+{% endblock content %}
